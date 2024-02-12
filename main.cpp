@@ -1,5 +1,13 @@
-#include <iostream>
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-int main() {
-    std::cout << "Hi Conan" << std::endl;
+#include "doctest/doctest.h"
+
+std::string world() {
+    return "World";
+}
+
+#pragma clang diagnostic ignored "-Woverloaded-shift-op-parentheses"
+
+TEST_CASE("Hello") {
+    CHECK(world() == "World");
 }
